@@ -22,11 +22,14 @@ var twitter = require('ntwitter');
 var tw = new twitter(require('./config').getKeys());
 
 function processcheck () {
-  if(twitCount == showCount * 50) {
-    console.log('ツイート件数が' + showCount * 5 + '0件に達しました');
+  if(twitCount == showCount * 500) {
+    console.log('ツイート件数が' + showCount * 5 + '00件に達しました');
     checktime = new Date();
     processtime = checktime - startTime;
     console.log('経過時間は' + processtime + 'msです');
+    if(showCount==2){
+      process.exit();
+    }
     showCount++;
   }
 
